@@ -6,6 +6,8 @@
     <title>TimesJournal</title>
 </head>
 <body>
-    {{ titlePage }}
+    {% for e in results %}
+        {{e[1]}}
+    {% endfor %}
 </body>
 </html>
