@@ -41,13 +41,14 @@ section.conteiner div.post__embeds{
     background-color: #ffffff;
     padding: 10px;
     border-radius: 3px;
-    box-shadow: 1px 0 2px;
+    box-shadow: 1px 0 2px rgba(0,0,0,.3);
     margin-bottom: 1em;
 }
 section.conteiner div.embed__post__informations ul{
     display: flex;
     list-style: none;
     gap: 10px;
+    font-size: 13px;
 }
     </style>
 </head>
@@ -104,6 +105,11 @@ section.conteiner div.embed__post__informations ul{
                                         <li>
                                             <div class="embed__user">
                                                 <a href="/user/{{row[2]}}">{{row[2]}}</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="embed__hour">
+                                                {{row[5]}}
                                             </div>
                                         </li>
                                     </ul>
