@@ -61,7 +61,7 @@ def login():
 
 @app.route('/index/access/<nome>')
 def initial(nome):
-    return render_template('access.html')
+    return render_template('access.html', usernameAccess=nome)
 
 app.route('/index/access/<nome>/publicar', methods=['GET', 'POST'])
 def publicar(nome):
