@@ -51,8 +51,8 @@ def login():
         results = db.cursor.fetchall()
         rows = db.cursor.rowcount
         if rows < 1:
-            classDiv = "alert alert-warning"
-            feedback = "Já existe um perfil com estas informações!!"
+            classDiv = "alert alert-danger"
+            feedback = "Informacões invalidas."
             return render_template('login.html', classDiv=classDiv, feedback=feedback)
         else:
             print('existe')
