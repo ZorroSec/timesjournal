@@ -48,7 +48,7 @@ def login():
     if request.method == "POST":
         email = request.form['email']
         senha = request.form['senha']
-        db.cursor.execute(f"SELECT * FROM users WHERE email = '{email}'")
+        db.cursor.execute(f"SELECT * FROM users WHERE email = '{email}' and senha = '{senha}'")
         results = db.cursor.fetchall()
         rows = db.cursor.rowcount
         if rows < 1:
