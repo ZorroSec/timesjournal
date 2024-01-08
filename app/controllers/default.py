@@ -2,7 +2,9 @@ from app import app
 from flask import Flask
 from flask import redirect
 from flask import render_template
+from flask import url_for
 from flask import request
+from datetime import date
 from app.models import db
 @app.route('/')
 def index():
@@ -14,5 +16,13 @@ def index():
 def cadastrar():
     if request.method == "POST":
         nome = request.form['nome']
-        print(nome)
+        email = request.form['email']
+        senha = request.form['senha']
+        data__atual = date.today()
+        db.cursor.execute(f"INSERT INTO users(nome,email,senha,data,status) VALUES('{nome}','{email}','{senha}','{data__atual}','')")
+        db.conn.commit()
+        results = db.cursor.rowcount
+        print(results)
+        # return "<script>alert('Cadastro realizado com sucesso!!')</script>"
+        redirect('/')
     return render_template('cadastrar.html')
