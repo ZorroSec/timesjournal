@@ -44,4 +44,11 @@ def cadastrar():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == "POST":
+        email = request.form['email']
+        senha = request.form['senha']
+        db.cursor.execute(f"SELECT * FROM users WHERE email = '{email}'")
+        results = db.cursor.fetchall()
+        print(results)
+
     return render_template('login.html')
