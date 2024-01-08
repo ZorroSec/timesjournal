@@ -45,16 +45,22 @@
         <div class="embed__posts">
             <div class="posts__informations">
                 <div class="post_fontents">
-                    <div class="post__embeds">
+                    <div class="posts">
                         {% for row in results %}
-                            <div class="embed__title">
-                                <strong>
-                                    {{row[0]}}. <a href="/post/{{row[2]}}/{{row[3]}}">{{row[3]}}</a>
-                                </strong>
-                            </div>
-                            <div class="embed__post__informations">
-                                <div class="embed__timeLikes">
-                                    {{row[1]}} TimeLikes
+                            <div class="post__embeds">
+                                <div class="embed__title">
+                                    <strong>
+                                        {{row[0]}}. <a href="/post/{{row[2]}}/{{row[3]}}">{{row[3]}}</a>
+                                    </strong>
+                                </div>
+                                <div class="embed__post__informations">
+                                    <ul>
+                                        <li>
+                                            <div class="embed__timeLikes">
+                                                {{row[1]}} TimeLikes
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         {% endfor %}
