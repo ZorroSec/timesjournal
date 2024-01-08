@@ -15,3 +15,6 @@ header.header{
     color: black;
     box-shadow: 1px 0 2px rgb(0,0,0,.3);
 }
+header.headeer div.logo{
+    font-family: 'Roboto', sans-serif;
+}
