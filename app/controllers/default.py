@@ -41,3 +41,7 @@ def cadastrar():
             # buttonAdd = redirect(url_for('/', addNewPost=addNewPost))
             return render_template('cadastrar.html', classDiv=classDiv, feedback=feedback, link=link, linkInfo=linkInfo)
     return render_template('cadastrar.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
