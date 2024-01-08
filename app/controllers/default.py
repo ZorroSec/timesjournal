@@ -28,7 +28,7 @@ def cadastrar():
         # redirect('/')
         checkExistUser = db.cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}' and email = '{email}'")
         results = db.cursor.fetchall()
-        if(results):
+        if results:
             classDiv = "alert alert-warning"
             feedback = "Já existe um perfil com estas informações!!"
             return render_template('cadastrar.html', classDiv=classDiv, feedback=feedback)
@@ -49,6 +49,11 @@ def login():
         senha = request.form['senha']
         db.cursor.execute(f"SELECT * FROM users WHERE email = '{email}'")
         results = db.cursor.fetchall()
-        print(results)
+        rows = db.cursor.rowcount
+        if rows < 1:
+            print('Nao existe')
+        else:
+            print('existe')
+            
 
     return render_template('login.html')
