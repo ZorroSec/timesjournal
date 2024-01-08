@@ -8,7 +8,6 @@ from datetime import date
 from app.models import db
 import unicodedata
 
-@app.route('/index')
 @app.route('/')
 def index():
     titlePage = db.cursor.execute("SELECT * FROM posts;")
@@ -57,9 +56,9 @@ def login():
             feedback = "Informacões invalidas."
             return render_template('login.html', classDiv=classDiv, feedback=feedback)
         else:
-            classA = "btn btn-primary"
-            textAddPost = "Novo conteúdo"
-            return redirect(url_for('index', classA=classA, textAddPost=textAddPost))
-            
-
+            return redirect(url_for('index'))
     return render_template('login.html')
+
+@app.route('/index/access/<nome>')
+def initial(nome):
+    return render_template('access.html')
