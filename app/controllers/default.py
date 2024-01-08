@@ -56,7 +56,7 @@ def login():
             feedback = "Informacões invalidas."
             return render_template('login.html', classDiv=classDiv, feedback=feedback)
         else:
-            return redirect(url_for('index'))
+            return redirect(f"/index/access/{results[0][1]}")
     return render_template('login.html')
 
 @app.route('/index/access/<nome>')
