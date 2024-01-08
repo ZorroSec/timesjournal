@@ -28,10 +28,6 @@ def cadastrar():
         checkExistUser = db.cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}' and email = '{email}'")
         results = db.cursor.fetchall()
         if(results):
-            feedback = """
-<strong>
-    Já existe um perfil com estas informações!!
-</strong>
-"""
+            feedback = "Já existe um perfil com estas informações!!"
             return render_template('cadastrar.html', feedback=feedback)
     return render_template('cadastrar.html')
