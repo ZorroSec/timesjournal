@@ -6,6 +6,7 @@ from flask import url_for
 from flask import request
 from datetime import date
 from app.models import db
+import unicodedata
 @app.route('/')
 def index():
     titlePage = db.cursor.execute("SELECT * FROM posts;")
@@ -28,6 +29,13 @@ def cadastrar():
         checkExistUser = db.cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}' and email = '{email}'")
         results = db.cursor.fetchall()
         if(results):
+            classDiv = "alert alert-warning"
             feedback = "Já existe um perfil com estas informações!!"
-            return render_template('cadastrar.html', feedback=feedback)
+            return render_template('cadastrar.html', classDiv=classDiv, feedback=feedback)
+        else:
+            classDiv = "alert alert-success"
+            feedback = "Conta criada com sucesso!!"
+            link = "/"
+            linkInfo = "Voltar para a página inicial."
+            return render_template('cadastrar.html', classDiv=classDiv, feedback=feedback, link=link, linkInfo=linkInfo)
     return render_template('cadastrar.html')
