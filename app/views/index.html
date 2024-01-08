@@ -41,5 +41,27 @@
             </div>
         </div>
     </header>
+    <section class="conteiner">
+        <div class="embed__posts">
+            <div class="posts__informations">
+                <div class="post_fontents">
+                    <div class="post__embeds">
+                        {% for row in results %}
+                            <div class="embed__title">
+                                <strong>
+                                    {{row[0]}}. <a href="/post/{{row[2]}}/{{row[3]}}">{{row[3]}}</a>
+                                </strong>
+                            </div>
+                            <div class="embed__post__informations">
+                                <div class="embed__timeLikes">
+                                    {{row[1]}} TimeLikes
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
