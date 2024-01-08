@@ -32,3 +32,8 @@ section.conteiner div.post__embeds{
     box-shadow: 1px 0 2px;
     margin-bottom: 1em;
 }
+section.conteiner div.embed__post__informations ul{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
