@@ -61,10 +61,8 @@ def login():
 
 @app.route('/index/access/<nome>')
 def initial(nome):
-    return render_template('access.html', usernameAccess=nome)
+    return render_template('access.html', nome=nome)
 
-app.route('/index/access/<nome>/publicar', methods=['GET', 'POST'])
+@app.route('/<nome>/publicar', methods=['GET', 'POST'])
 def publicar(nome):
-    return {
-        'status': 'page not found'
-    }
+    return 'test'
