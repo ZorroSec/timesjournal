@@ -37,5 +37,7 @@ def cadastrar():
             feedback = "Conta criada com sucesso!!"
             link = "/"
             linkInfo = "Voltar para a página inicial."
+            # addNewPost = redirect(url_for('/publicar'))
+            # buttonAdd = redirect(url_for('/', addNewPost=addNewPost))
             return render_template('cadastrar.html', classDiv=classDiv, feedback=feedback, link=link, linkInfo=linkInfo)
     return render_template('cadastrar.html')
