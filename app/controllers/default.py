@@ -7,6 +7,8 @@ from flask import request
 from datetime import date
 from app.models import db
 import unicodedata
+
+@app.route('/index')
 @app.route('/')
 def index():
     titlePage = db.cursor.execute("SELECT * FROM posts;")
@@ -55,7 +57,9 @@ def login():
             feedback = "Informacões invalidas."
             return render_template('login.html', classDiv=classDiv, feedback=feedback)
         else:
-            print('existe')
+            classA = "btn btn-primary"
+            textAddPost = "Novo conteúdo"
+            return redirect(url_for('index', classA=classA, textAddPost=textAddPost))
             
 
     return render_template('login.html')
