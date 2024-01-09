@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>TimesJournal</title>
+    <style>
+:root{
+    --cor-fundo: rgb(34, 41, 37);
+    --cor-hover: rgb(118, 180, 145);
+    --cor-primaria: rgb(231, 241, 236);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #f2f2f2;
+}
+header.header{
+    background: #ffffff;
+    padding: 1em;
+    color: black;
+    box-shadow: 1px 0 2px rgb(0,0,0,.3);
+}
+div.principal__links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header.headeer div.logo{
+    font-family: 'Roboto', sans-serif;
+}
+div.secundary__links{
+    display: flex;
+    gap: 10px;
+}
+section.conteiner div.post__embeds{
+    margin: auto;
+    margin-top: 1em;
+    width: 75%;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 1px 0 2px rgba(0,0,0,.3);
+    margin-bottom: 1em;
+}
+section.conteiner div.embed__post__informations ul{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    font-size: 13px;
+}
+div.add__post__button{
+    margin: auto;
+    width: 75%;
+    margin-bottom: 2.2em;
+    margin-top: 2.2em;
+}
+div.add__post__button a{
+    text-decoration: none;
+    background-color: #23abf0;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+div.create{
+    margin: auto;
+    width: 75%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+div.otter__links{
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+/* div.vr-otter{
+    border-left: 1px dashed black;
+} */
+div.publish-form{
+    margin: auto;
+    width: 65%;
+    margin-top: 1.3em;
+}
+div.embed__textarea{
+    display: flex;
+    gap: 1em;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+}
+div.embeds-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+hr.h-divider{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid gray;
+}
+.db-menu ul{
+    list-style: none;
+    padding: 0;
+}
+.db-menu ul li{
+    display: inline;
+    position: relative;
+}
+.db-menu ul li a{
+    display: inline-block;
+    
+    transition: .3s;
+}
+.db-menu ul li a:hover{
+    opacity: 0.3;
+}
+.db-menu ul ul{
+    display: none;
+    left: 0;
+    position: absolute;
+}
+.db-menu ul li:hover ul{
+    display: block;
+}
+.db-menu ul ul{
+    width: 150px;
+}
+.db-menu ul ul li a{
+    display: block;
+}
+div.logo{
+    display: flex;
+    gap: 1em;
+}
+div.error{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="principal__links">
+            <div class="primary__informations">
+                <div class="embed__Logo">
+                    <div class="logo__information">
+                        <div class="logo__information__h1">
+                            <div class="logo">
+                                <h1>
+                                    TimesJournal
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <!-- <div class="create">
+        <div class="d-grid gap-2">
+            <a class="btn btn-primary" href="/{{nome}}/publicar">Novo conteúdo</a>
+        </div>
+    </div> -->
+    <!-- <div class="add__post__button">
+        <a href="/publicar">Novo conteúdo</a>
+    </div> -->
+    <section class="conteiner">
+        <div class="error">
+            <div class="alert alert-danger" role="alert">
+                <p>User not found.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted">API</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted">Github</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted">Inicio</a>
+            </li>
+        </ul>
+        <p class="text-center text-muted">&copy; 2024 TimesJournal</p>
+    </footer>
+</body>
+</html>
