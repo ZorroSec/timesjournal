@@ -205,7 +205,7 @@ div.embeds-links{
                             </div>
                             <div class="embed__quote">
                                 <div id="quote-embed-btn">
-                                    <abbr title="Aspas">
+                                    <abbr title="Citar">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
                                             <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
                                         </svg>
@@ -290,12 +290,57 @@ div.embeds-links{
     </section>
 
     <script>
-        const boldEmbedBtn = document.getElementById('bold-embed-btn')
+        // textarea
         const textArea = document.getElementById('post')
+        // embeds
+        const boldEmbedBtn = document.getElementById('bold-embed-btn')
+        const italic = document.getElementById('italic-embed-btn')
+        const citar = document.getElementById('quote-embed-btn')
+        const paperclip = document.getElementById('paperclip-embed-btn')
+        const codeslash = document.getElementById('codeslash-embed-btn')
+        const codeblock = document.getElementById('codeblock-embed-btn')
+        const listUl = document.getElementById('list-ul-btn')
+        const listOl = document.getElementById('list-ol-btn')
+        const taskEmbed = document.getElementById('task-embed-btn')
+        const tableEmbed = document.getElementById('table-embed-btn')
+
+        // onclick embeds
         boldEmbedBtn.addEventListener('click', ()=>{
-            textArea.value += "****"
+            textArea.value += "** **"
         })
-        
+        italic.addEventListener('click', ()=>{
+            textArea.value += "* *"
+        })
+        citar.addEventListener('click', ()=>{
+            textArea.value += "> "
+        })
+        paperclip.addEventListener('click', ()=>{
+            textArea.value += "[_](url)"
+        })
+        codeslash.addEventListener('click', ()=>{
+            textArea.value += "`js`"
+        })
+        codeblock.addEventListener('click', ()=>{
+            textArea.value += "```js```"
+        })
+        listUl.addEventListener('click', ()=>{
+            textArea.value += "- "
+        })
+        listOl.addEventListener('click', ()=>{
+            textArea.value += "1. - "
+        })
+        taskEmbed.addEventListener('click', ()=>{
+            textArea.value += "- [ ]"
+        })
+        tableEmbed.addEventListener('click', ()=>{
+            textArea.value += `
+| Cabeçalho da tabela |  |
+| --- | --- |
+|  |  |
+
+            `
+
+        })
     </script>
 </body>
 </html>
