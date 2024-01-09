@@ -165,8 +165,12 @@ div.publish-form{
             <div class="spacing" style="margin-top: 20px;"></div>
             <form action="/{{nome}}/publicar">
                 <div class="form-group">
-                    <label for="titulo"><strong>Titulo *</strong></label>
+                    <label for="titulo" class="form-label"><strong>Titulo *</strong></label>
                     <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Tudo que eu descobri em um ano como programador">
+                </div>
+                <div class="form-group">
+                    <label for="post" class="form-label">Publicação *</label>
+                    <textarea name="post" id="post" class="form-control" style="height: 211px;"></textarea>
                 </div>
             </form>
         </div>
