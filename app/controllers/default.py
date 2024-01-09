@@ -67,4 +67,4 @@ def initial(nome):
 
 @app.route('/<nome>/publicar', methods=['GET', 'POST'])
 def publicar(nome):
-    return 'test'
+    return render_template('publicar.html', nome=nome)
