@@ -10,7 +10,7 @@ import unicodedata
 
 @app.route('/')
 def index():
-    titlePage = db.cursor.execute("SELECT * FROM posts;")
+    db.cursor.execute("SELECT * FROM posts;")
     results = db.cursor.fetchall()
     return render_template('index.html', results=results)
 
@@ -61,7 +61,9 @@ def login():
 
 @app.route('/index/access/<nome>')
 def initial(nome):
-    return render_template('access.html', nome=nome)
+    db.cursor.execute("SELECT * FROM posts;")
+    results = db.cursor.fetchall()
+    return render_template('access.html', nome=nome, results=results)
 
 @app.route('/<nome>/publicar', methods=['GET', 'POST'])
 def publicar(nome):
