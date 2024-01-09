@@ -77,8 +77,9 @@ def publicar(nome):
     db.cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}'")
     results = db.cursor.fetchall()
     rows = db.cursor.rowcount
-    print(rows)
     if rows < 1:
-        return "Não existe"
+        return render_template('error/user.html', nome=nome)
     else:
-        return "existe"
+        db.cursor.execute("SELECT * FROM posts;")
+        result = db.cursor.fetchall()
+        return render_template('publicar.html', nome=nome)
