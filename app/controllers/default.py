@@ -34,13 +34,20 @@ def cadastrar():
             feedback = "Já existe um perfil com estas informações!!"
             return render_template('cadastrar.html', classDiv=classDiv, feedback=feedback)
         else:
+            newUsername = nome.lower().replace(' ', '')
+            db.cursor.execute(f"INSERT INTO users(nome,email,senha,data) VALUES('{newUsername}','{email}','{senha}','{data__atual}')")
+            result = db.conn.commit()
+            print(result)
             classDiv = "alert alert-success"
             feedback = "Conta criada com sucesso!!"
-            link = "/"
+            print(results)
+            link = f"/"
             linkInfo = "Voltar para a página inicial."
             # addNewPost = redirect(url_for('/publicar'))
             # buttonAdd = redirect(url_for('/', addNewPost=addNewPost))
             return render_template('cadastrar.html', classDiv=classDiv, feedback=feedback, link=link, linkInfo=linkInfo)
+                
+                
     return render_template('cadastrar.html')
 
 @app.route('/login', methods=['GET', 'POST'])
