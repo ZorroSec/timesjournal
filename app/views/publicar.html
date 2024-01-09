@@ -91,6 +91,20 @@ div.publish-form{
     width: 65%;
     margin-top: 1.3em;
 }
+div.embed__textarea{
+    display: flex;
+    gap: 1em;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+}
+select#headers{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-weight: bolder;
+}
     </style>
 </head>
 <body>
@@ -174,12 +188,13 @@ div.publish-form{
                         <div class="embed__headers">
                             <div id="selectHeaders">
                                 <select name="headers" id="headers">
-                                    <option id="h1" value="h1">H1</option>
-                                    <option id="h2" value="h2">H2</option>
-                                    <option id="h3" value="h3">H3</option>
-                                    <option id="h4" value="h4">H4</option>
-                                    <option id="h5" value="h5">H5</option>
-                                    <option id="h6" value="h6">H6</option>
+                                    <option id="logoOptions" value="logo"><strong>H</strong></option>
+                                    <option id="h1" value="h1"><strong>H1</strong> Cabeçalho 1</option>
+                                    <option id="h2" value="h2"><strong>H2</strong> Cabeçalho 2</option>
+                                    <option id="h3" value="h3"><strong>H3</strong> Cabeçalho 3</option>
+                                    <option id="h4" value="h4"><strong>H4</strong> Cabeçalho 4</option>
+                                    <option id="h5" value="h5"><strong>H5</strong> Cabeçalho 5</option>
+                                    <option id="h6" value="h6"><strong>H6</strong> Cabeçalho 6</option>
                                 </select>
                             </div>
                         </div>
