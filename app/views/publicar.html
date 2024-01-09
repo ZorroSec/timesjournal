@@ -163,14 +163,21 @@ div.publish-form{
                 </div>
             </div>
             <div class="spacing" style="margin-top: 20px;"></div>
-            <form action="/{{nome}}/publicar">
+            <form action="/{{nome}}/publicar" method="POST">
                 <div class="form-group">
                     <label for="titulo" class="form-label"><strong>Titulo *</strong></label>
                     <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Tudo que eu descobri em um ano como programador">
                 </div>
                 <div class="form-group">
-                    <label for="post" class="form-label">Publicação *</label>
+                    <button></button>
+                </div>
+                <div class="form-group">
+                    <label for="post" class="form-label"><strong>Publicação *</strong></label>
                     <textarea name="post" id="post" class="form-control" style="height: 211px;"></textarea>
+                </div>
+                <br>
+                <div class="form-group" style="float: right;">
+                    <button type="submit" class="btn btn-success">Publicar</button>
                 </div>
             </form>
         </div>
