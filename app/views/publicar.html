@@ -185,19 +185,6 @@ select#headers{
                 <div class="form-group">
                     <label for="post" class="form-label"><strong>Publicação *</strong></label>
                     <div class="embed__textarea">
-                        <div class="embed__headers">
-                            <div id="selectHeaders">
-                                <select name="headers" id="headers">
-                                    <option id="logoOptions" value="logo"><strong>H</strong></option>
-                                    <option id="h1" value="h1"><strong>H1</strong> Cabeçalho 1</option>
-                                    <option id="h2" value="h2"><strong>H2</strong> Cabeçalho 2</option>
-                                    <option id="h3" value="h3"><strong>H3</strong> Cabeçalho 3</option>
-                                    <option id="h4" value="h4"><strong>H4</strong> Cabeçalho 4</option>
-                                    <option id="h5" value="h5"><strong>H5</strong> Cabeçalho 5</option>
-                                    <option id="h6" value="h6"><strong>H6</strong> Cabeçalho 6</option>
-                                </select>
-                            </div>
-                        </div>
                         <div class="embed__bold">
                             <div id="bold-embed-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-type-bold" viewBox="0 0 16 16">
@@ -287,6 +274,7 @@ select#headers{
         boldEmbedBtn.addEventListener('click', ()=>{
             textArea.value += "****"
         })
+        
     </script>
 </body>
 </html>
