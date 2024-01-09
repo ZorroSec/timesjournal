@@ -86,6 +86,11 @@ div.otter__links a{
 /* div.vr-otter{
     border-left: 1px dashed black;
 } */
+div.publish-form{
+    margin: auto;
+    width: 65%;
+    margin-top: 1.3em;
+}
     </style>
 </head>
 <body>
@@ -150,5 +155,21 @@ div.otter__links a{
             </a>
         </div>
     </header>
+    <section class="conteiner">
+        <div class="publish-form">
+            <div class="col">
+                <div class="col-xs-12">
+                    <h2>Publicar novo conteúdo</h2>
+                </div>
+            </div>
+            <div class="spacing" style="margin-top: 20px;"></div>
+            <form action="/{{nome}}/publicar">
+                <div class="form-group">
+                    <label for="titulo"><strong>Titulo *</strong></label>
+                    <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Tudo que eu descobri em um ano como programador">
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
