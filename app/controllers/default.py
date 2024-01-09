@@ -7,12 +7,14 @@ from flask import request
 from datetime import date
 from app.models import db
 import unicodedata
+import markdown
 
 @app.route('/')
 def index():
     db.cursor.execute("SELECT * FROM posts;")
     results = db.cursor.fetchall()
     return render_template('index.html', results=results)
+
 
 @app.route('/cadastrar', methods=['GET', 'POST'])
 def cadastrar():
@@ -50,6 +52,7 @@ def cadastrar():
                 
     return render_template('cadastrar.html')
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
@@ -66,6 +69,7 @@ def login():
             return redirect(f"/{results[0][1]}/index")
     return render_template('login.html')
 
+
 @app.route('/<nome>/index')
 def initial(nome):
     db.cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}'")
@@ -77,6 +81,7 @@ def initial(nome):
         db.cursor.execute("SELECT * FROM posts;")
         results = db.cursor.fetchall()
         return render_template('access.html', nome=nome, results=results)
+
 
 @app.route('/<nome>/publicar', methods=['GET', 'POST'])
 def publicar(nome):
@@ -90,5 +95,7 @@ def publicar(nome):
         result = db.cursor.fetchall()
         if request.method == 'POST':
             titulo = request.form['titulo']
-            print(titulo)
+            post = request.form['post']
+            fonte = request.form['fonte']
+            print(markdown.markdown(post))
         return render_template('publicar.html', nome=nome)
