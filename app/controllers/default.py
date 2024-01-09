@@ -84,8 +84,11 @@ def publicar(nome):
     results = db.cursor.fetchall()
     rows = db.cursor.rowcount
     if rows < 1:
-        return render_template('error/user.html', nome=nome)
+        return render_template('error/user.html')
     else:
         db.cursor.execute("SELECT * FROM posts;")
         result = db.cursor.fetchall()
+        if request.method == 'POST':
+            titulo = request.form['titulo']
+            print(titulo)
         return render_template('publicar.html', nome=nome)
