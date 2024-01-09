@@ -59,7 +59,7 @@ def login():
             return redirect(f"/index/access/{results[0][1]}")
     return render_template('login.html')
 
-@app.route('/index/access/<nome>')
+@app.route('/<nome>/index')
 def initial(nome):
     db.cursor.execute("SELECT * FROM posts;")
     results = db.cursor.fetchall()
