@@ -280,5 +280,13 @@ select#headers{
             </form>
         </div>
     </section>
+
+    <script>
+        const boldEmbedBtn = document.getElementById('bold-embed-btn')
+        const textArea = document.getElementById('post')
+        boldEmbedBtn.addEventListener('click', ()=>{
+            textArea.value += "****"
+        })
+    </script>
 </body>
 </html>
