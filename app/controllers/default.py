@@ -68,9 +68,15 @@ def login():
 
 @app.route('/<nome>/index')
 def initial(nome):
-    db.cursor.execute("SELECT * FROM posts;")
-    results = db.cursor.fetchall()
-    return render_template('access.html', nome=nome, results=results)
+    db.cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}'")
+    result = db.cursor.fetchall()
+    rows = db.cursor.rowcount
+    if rows < 1:
+        return render_template('error/user.html')
+    else:
+        db.cursor.execute("SELECT * FROM posts;")
+        results = db.cursor.fetchall()
+        return render_template('access.html', nome=nome, results=results)
 
 @app.route('/<nome>/publicar', methods=['GET', 'POST'])
 def publicar(nome):
