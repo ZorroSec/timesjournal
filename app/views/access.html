@@ -20,12 +20,14 @@ body{
 }
 header.header{
     background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 1em;
     color: black;
     box-shadow: 1px 0 2px rgb(0,0,0,.3);
+}
+div.principal__links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 header.headeer div.logo{
     font-family: 'Roboto', sans-serif;
@@ -71,70 +73,70 @@ div.create{
     margin-bottom: 1em;
     font-weight: bold;
 }
-#menu{
-    display: none;
+div.otter__links{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    color: black;
+}
+div.otter__links a{
+    color: black;
 }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="primary__informations">
-            <div class="embed__Logo">
-                <div class="logo__information">
-                    <div class="logo__information__h1">
-                        <div class="logo">
-                            <h1>
-                                TimesJournal
-                            </h1>
+        <div class="principal__links">
+            <div class="primary__informations">
+                <div class="embed__Logo">
+                    <div class="logo__information">
+                        <div class="logo__information__h1">
+                            <div class="logo">
+                                <h1>
+                                    TimesJournal
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="secundary__informations">
+                <div class="embed__links">
+                    <div class="secundary__links">
+                        <div class="link">
+                            <a href="/">Inicio</a>
+                        </div>
+                        <div class="link">
+                            <a href="/artigos">Artigos</a>
+                        </div>
+                        <div class="link">
+                            <a href="/noticias">Noticias</a>
+                        </div>
+                        <div class="link">
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="secundary__informations">
-            <div class="embed__links">
-                <div class="secundary__links">
-                    <div class="link">
-                        <a href="/">Inicio</a>
-                    </div>
-                    <div class="link">
-                        <a href="/artigos">Artigos</a>
-                    </div>
-                    <div class="link">
-                        <a href="/noticias">Noticias</a>
-                    </div>
-                    <div class="link">
-                        <div class="btn-toggle-na">&#9776;</div>
-                    </div>
-                </div>
-                <div class="burguer__links">
-                    <aside class="nav-sidebar">
-                        <ul>
-                            <li>
-                                <a href="/{{nome}}/perfil">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                                    </svg>
-                                    Perfil</a>
-                            </li>
-                            <li>
-                                <a href="/{{nome}}/publicar">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                                    </svg>
-                                    Novo conteúdo</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </div>
-            </div>
+        <div class="otter__links">
+            <a href="/{{nome}}/perfil">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+                Perfil</a> |
+            <a href="/{{nome}}/publicar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                </svg>
+                Novo conteúdo</a>
         </div>
     </header>
-    <div class="create">
+    <!-- <div class="create">
         <div class="d-grid gap-2">
             <a class="btn btn-primary" href="/{{nome}}/publicar">Novo conteúdo</a>
         </div>
-    </div>
+    </div> -->
     <!-- <div class="add__post__button">
         <a href="/publicar">Novo conteúdo</a>
     </div> -->
@@ -178,16 +180,28 @@ div.create{
     </section>
 
     <script>
-        const menuburguer = document.getElementById('menu-burguer')
-        const menu = document.getElementById('menu')
+        let toggleNavStatus = false
 
-        menuburguer.addEventListener('click', ()=>{
-            if(menu.style.display === 'block'){
-                menu.style.display = 'none'
-            } else{
-                menu.style.display = 'block'
+        let toggleNav = ()=>{
+            let getSidebar =  document.querySelector('.nav-sidebar')
+            let getSidebarUl = document.querySelector('.nav-sidebar ul')
+            let getSideberTitle = document.querySelector('.nav-sidebar span')
+            let getSidebarLinks = document.querySelector('.nav-sidebar a')
+            let logoBtnMenu = document.querySelector('.btn-toggle-nav')
+
+            if(toggleNavStatus === false){
+                getSidebarUl.style.visibily = 'visible'
+                getSidebar.style.width = '272px'
+                getSidebar.style.background = '#ffffff'
+                getSideberTitle.style.opacity = '0.5'
+
+                let arrayLength = getSidebarLinks.length
+                for(let i = 0; i < arrayLength; i++){
+                    getSidebarLinks[i].style.opacity = "1"
+
+                }
             }
-        })
+        }
     </script>
 </body>
 </html>
