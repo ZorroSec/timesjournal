@@ -74,4 +74,11 @@ def initial(nome):
 
 @app.route('/<nome>/publicar', methods=['GET', 'POST'])
 def publicar(nome):
-    return render_template('publicar.html', nome=nome)
+    db.cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}'")
+    results = db.cursor.fetchall()
+    rows = db.cursor.rowcount
+    print(rows)
+    if rows < 1:
+        return "Não existe"
+    else:
+        return "existe"
