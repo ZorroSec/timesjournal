@@ -104,6 +104,13 @@ div.embeds-links{
     align-items: center;
     justify-content: space-evenly;
 }
+hr.h-divider{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid gray;
+}
     </style>
 </head>
 <body>
@@ -279,7 +286,11 @@ div.embeds-links{
                             </div>
                         </div>
                     </div>
-                    <textarea name="post" id="post" class="form-control" style="height: 211px;"></textarea>
+                    <textarea name="post" id="post" class="form-control" style="height: 211px; padding: 2.2em;"></textarea>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="fonte" class="form-label"><strong>Fonte</strong></label>
+                    <input type="url" name="fonte" id="fonte" class="form-control" placeholder="https://exemplo.site/artigos">
                 </div>
                 <br>
                 <div class="form-group" style="float: right;">
@@ -288,7 +299,20 @@ div.embeds-links{
             </form>
         </div>
     </section>
-
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted">API</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted">Github</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted">Inicio</a>
+            </li>
+        </ul>
+        <p class="text-center text-muted">&copy; 2024 TimesJournal</p>
+    </footer>
     <script>
         // textarea
         const textArea = document.getElementById('post')
