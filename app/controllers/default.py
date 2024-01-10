@@ -78,7 +78,7 @@ def initial(nome):
     if rows < 1:
         return render_template('error/user.html')
     else:
-        db.cursor.execute("SELECT * FROM post;")
+        db.cursor.execute("SELECT * FROM post ORDER BY id DESC;")
         results = db.cursor.fetchall()
         return render_template('access.html', nome=nome, results=results)
 
