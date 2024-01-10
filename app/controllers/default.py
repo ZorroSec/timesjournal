@@ -111,4 +111,6 @@ def publicar(nome):
 
 @app.route('/<nome>/<titulo>')
 def post(nome, titulo):
-    return titulo
+    db.cursor.execute(f"SELECT * FROM post WHERE nome = '{nome}' and titulo = '{titulo}'")
+    postInfo = db.cursor.fetchall()
+    return render_template('post.html', post=postInfo)
