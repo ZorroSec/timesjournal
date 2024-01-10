@@ -11,7 +11,7 @@ import markdown
 
 @app.route('/')
 def index():
-    db.cursor.execute("SELECT * FROM posts;")
+    db.cursor.execute("SELECT * FROM post;")
     results = db.cursor.fetchall()
     return render_template('index.html', results=results)
 
@@ -78,7 +78,7 @@ def initial(nome):
     if rows < 1:
         return render_template('error/user.html')
     else:
-        db.cursor.execute("SELECT * FROM posts;")
+        db.cursor.execute("SELECT * FROM post;")
         results = db.cursor.fetchall()
         return render_template('access.html', nome=nome, results=results)
 
@@ -91,11 +91,24 @@ def publicar(nome):
     if rows < 1:
         return render_template('error/user.html')
     else:
-        db.cursor.execute("SELECT * FROM posts;")
+        db.cursor.execute("SELECT * FROM post;")
         result = db.cursor.fetchall()
         if request.method == 'POST':
             titulo = request.form['titulo']
             post = request.form['post']
             fonte = request.form['fonte']
-            print(markdown.markdown(post))
+            data__atual = date.today()
+            db.cursor.execute(f"INSERT INTO post(likes,nome,titulo,post,data,fonte) VALUES('1','{nome}','{titulo}','{post}','{data__atual}','{fonte}')")
+            commit = db.conn.commit()
+            print(commit)
+            if commit:
+                db.cursor.execute(f"SELECT * FROM post")
+                result = db.cursor.fetchall()
+                print(result)
+                return redirect(f'/{result[0][2]}/{result[0][3]}')
         return render_template('publicar.html', nome=nome)
+
+
+@app.route('/<nome>/<titulo>')
+def post(nome, titulo):
+    return titulo
